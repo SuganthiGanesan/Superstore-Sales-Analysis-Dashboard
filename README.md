@@ -4,11 +4,6 @@
 
 This repository contains a comprehensive **Power BI Sales Dashboard** built to analyze the performance of a Superstore. The dashboard leverages advanced Power BI features including Row-Level Security (RLS), Page Navigation, Bookmarks, Drill-through, and complex DAX measures to provide secure, interactive, and deep insights into sales trends, profitability, and regional performance.
 
-## 🚀 Live Dashboard
-
-<!-- Add a link if you have published this online -->
-[View Live Dashboard](#) *(Optional: Add your Power BI Service link here)*
-
 ## ⚡ Advanced Power BI Features Implemented
 
 ### 🔐 Row-Level Security (RLS)
@@ -36,15 +31,31 @@ Parallel Period Yr = CALCULATE([Total Sales], PARALLELPERIOD('Date'[Date], -1, Y
 
 Profit Margin % = DIVIDE([Total Profit], [Total Sales], 0)
 
-## ✨ Key Performance Indicators (KPIs)
+## Key Performance Indicators (KPIs)
 
 | Metric | Value | DAX Calculation |
 |--------|-------|-----------------|
 | **Total Sales** | 2.30M | `SUM(Sales[Amount])` |
 | **Sales LY (Last Year)** | 1.56M | `CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))` |
-| **Parallel Period (YoY)** | 2.09M | `CALCULATE([Total Sales], PARALLELPERIOD('Date'[Date], -1, YEAR))` |
+| **Parallel Period (YoY)** | 2.09M | `CALCULATE([Total Sales], PARALLELPERIOD('Date'[Date]))` |
 | **Total Profit** | 286.40K | `SUM(Sales[Profit])` |
 | **Average Profit** | 28.66 | `AVERAGE(Sales[Profit])` |
+
+### Technical Implementation
+
+**Power BI Features Used:**
+
+| Feature | Description |
+|---------|-------------|
+| 🔐 **Row-Level Security (RLS)** | Role-based data access |
+| 📑 **Page Navigation** | Multi-page dashboard with buttons |
+| 🔖 **Bookmarks** | Saved views for different analysis scenarios |
+| 🔍 **Drill-Through** | Detailed transaction analysis |
+
+### Profit Margin Calculation
+
+```dax
+Profit Margin % = DIVIDE([Total Profit], [Total Sales], 0)
 
 ##🛠️ Technical Implementation
 Power BI Features Used:
