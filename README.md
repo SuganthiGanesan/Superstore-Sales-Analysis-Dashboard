@@ -22,51 +22,44 @@ This repository contains a comprehensive **Power BI Sales Dashboard** built to a
 - **Cross-Filtering:** Maintains context when navigating from summary to detail
 - *Benefit: Enables root-cause analysis without cluttering the main dashboard*
 
-### 📊 Advanced DAX Measures
-```dax
+## 📊 Advanced DAX Measures
+
+```
 // Sample DAX Measures Used:
 Sales LY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))
 
 Parallel Period Yr = CALCULATE([Total Sales], PARALLELPERIOD('Date'[Date], -1, YEAR))
 
 Profit Margin % = DIVIDE([Total Profit], [Total Sales], 0)
+```
 
+## Key Performance Indicators (KPIs)
 
+| Metric | Value | DAX Calculation |
+|--------|-------|-----------------|
+| **Total Sales** | 2.30M | `SUM(Sales[Amount])` |
+| **Sales LY (Last Year)** | 1.56M | `CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))` |
+| **Parallel Period (YoY)** | 2.09M | `CALCULATE([Total Sales], PARALLELPERIOD('Date'[Date]))` |
+| **Total Profit** | 286.40K | `SUM(Sales[Profit])` |
+| **Average Profit** | 28.66 | `AVERAGE(Sales[Profit])` |
 
-### Technical Implementation
+## 🛠️ Technical Implementation
 
-**Power BI Features Used:**
+### Power BI Features Used:
 
 | Feature | Description |
 |---------|-------------|
-| 🔐 **Row-Level Security (RLS)** | Role-based data access |
-| 📑 **Page Navigation** | Multi-page dashboard with buttons |
-| 🔖 **Bookmarks** | Saved views for different analysis scenarios |
-| 🔍 **Drill-Through** | Detailed transaction analysis |
+| ✅ **Row-Level Security (RLS)** | Role-based data access |
+| ✅ **Page Navigation** | Multi-page dashboard with buttons |
+| ✅ **Bookmarks** | Saved views for different analysis scenarios |
+| ✅ **Drill-Through** | Detailed transaction analysis |
+| ✅ **DAX Measures** | Time intelligence, calculations, KPIs |
+| ✅ **Tooltips** | Hover-based detailed information |
+| ✅ **Report Themes** | Consistent color scheme (Orange/Blue/Green) |
 
-### Profit Margin Calculation
+## 📁 Data Model
 
-```dax
-Profit Margin % = DIVIDE([Total Profit], [Total Sales], 0)
-
-##🛠️ Technical Implementation
-Power BI Features Used:
-✅ Row-Level Security (RLS) - Role-based data access
-
-✅ Page Navigation - Multi-page dashboard with buttons
-
-✅ Bookmarks - Saved views for different analysis scenarios
-
-✅ Drill-Through - Detailed transaction analysis
-
-✅ DAX Measures - Time intelligence, calculations, KPIs
-
-✅ Tooltips - Hover-based detailed information
-
-✅ Report Themes - Consistent color scheme (Orange/Blue/Green)
-
-📁 Data Model
-
+```
 ┌─────────────┐     ┌─────────────┐
 │   Sales     │─────│    Date     │
 │ (Fact Table)│     │ (Dimension) │
@@ -83,30 +76,42 @@ Power BI Features Used:
                      │   RLS     │
                      │  Tables   │
                      └───────────┘
+```
 
-📁 Dataset Information
+## 📁 Dataset Information
+
 The dashboard uses the classic "Sample Superstore" dataset, containing information on:
 
-- Orders and Sales Transactions
+- **Orders and Sales Transactions** - Complete order history
+- **Product Categories and Sub-Categories** - Technology, Furniture, Office Supplies
+- **Customer Segments** - Consumer, Corporate, Home Office
+- **Geographic Regions and States** - US regional distribution
+- **Profit Margins** - Profitability by product and region
 
-- Product Categories and Sub-Categories
+## 🎯 Project Objectives
 
-- Customer Segments
+| Objective | Description |
+|-----------|-------------|
+| 📊 **Executive Dashboard** | Create high-level view for quick performance assessment |
+| 📈 **Trend Analysis** | Analyze sales patterns across different time periods |
+| 🏷️ **Category Performance** | Evaluate product category and regional performance |
+| 💰 **Profitability Tracking** | Track profitability alongside revenue metrics |
+| 📅 **YoY Comparison** | Enable year-over-year comparison for growth analysis |
+| 🔒 **Security Implementation** | Implement enterprise-level security with RLS |
 
-- Geographic Regions and States
 
-- Profit Margins
 
-🎯 Project Objectives
+### RLS Configuration:
+1. Open Power BI Desktop
+2. Go to Modeling → Manage Roles
+3. Create roles (West, East, Central, South)
+4. Apply DAX filters: `[Region] = "West"`
+5. Test with "View As" feature
 
-- Create an executive-level business dashboard for quick performance assessment
 
-- Analyze sales trends and patterns across different time periods
+## 📄 License
 
-- Evaluate product category and regional performance
+This project is open source and available under the [MIT License](LICENSE).
 
-- Track profitability alongside revenue metrics
+---
 
-- Enable year-over-year comparison for growth analysis
-
-- Implement enterprise-level security with RLS
