@@ -31,15 +31,7 @@ Parallel Period Yr = CALCULATE([Total Sales], PARALLELPERIOD('Date'[Date], -1, Y
 
 Profit Margin % = DIVIDE([Total Profit], [Total Sales], 0)
 
-## Key Performance Indicators (KPIs)
 
-| Metric | Value | DAX Calculation |
-|--------|-------|-----------------|
-| **Total Sales** | 2.30M | `SUM(Sales[Amount])` |
-| **Sales LY (Last Year)** | 1.56M | `CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))` |
-| **Parallel Period (YoY)** | 2.09M | `CALCULATE([Total Sales], PARALLELPERIOD('Date'[Date]))` |
-| **Total Profit** | 286.40K | `SUM(Sales[Profit])` |
-| **Average Profit** | 28.66 | `AVERAGE(Sales[Profit])` |
 
 ### Technical Implementation
 
